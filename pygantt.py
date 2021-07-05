@@ -34,298 +34,35 @@ end = datetime.datetime.strptime("31-07-2021", "%d-%m-%Y")
 date_generated = [start + datetime.timedelta(days=x) for x in range(0, (end-start).days, 7)]
 
 ## 2.2. colors by category
-Ccolor = {"Développement d'outil de visualisation":['LightGreen', 'MediumSeaGreen'], 
-          "Développement du traitement de données":['LightSkyBlue', 'SteelBlue'], 
-          "Prise en main du code initial":['PaleVioletRed', 'MediumVioletRed '], 
-          "Utilisation des outils de réseau":['Plum', 'Orchid'],
-          "Rédaction de contenu scientifique":['Tan', 'Sienna'],
-          "Titre":['black', 'black']
+Ccolor = {"Category 1":['LightGreen', 'MediumSeaGreen'], 
+          "Category 2":['LightSkyBlue', 'SteelBlue'], 
+          "Category 3":['PaleVioletRed', 'MediumVioletRed '], 
+          "Category 4":['Plum', 'Orchid'],
+          "Category 5":['Tan', 'Sienna'],
+          "Title":['black', 'black']
           }
 
 ###  3. CONTENT
 odf = pd.DataFrame([
         # section
-        dict(Task="<b>1. Prise en main de l'environnement de travail</b>", 
-             Start='01-04-2021', Finish='01-04-2021', Completion_pct=0,                 
-             Category="Titre", 
+        dict(Task="<b>1. Section</b>", 
+             Start='01-07-2021', Finish='01-07-2021', Completion_pct=0,                 
+             Category="Title", 
              Note=''),
              
     # subsection
-    dict(Task="<b>1.1</b> Prise en main de git",
-         Start='01-04-2021', Finish='02-04-2021', Completion_pct=100, 
-         Category="Utilisation des outils de réseau", 
-         Note="Téléchargement du code."),
+    dict(Task="<b>1.1</b> Subsection 1",
+         Start='01-07-2021', Finish='10-07-2021', Completion_pct=100, 
+         Category="Category 1", 
+         Note="foo"),
         
-    dict(Task="<b>1.2</b> Prise en main du jeu de données du Great Meteor Seamont", 
-         Start='01-04-2021', Finish='02-04-2021', Completion_pct=100, 
-         Category="Prise en main du code initial", 
-         Note="Téléchargement d'un jeu de données légé mais présentant de<br>"
-              "nombreux problèmes de déviation."),
-    
-    dict(Task="<b>1.3</b> Reproduction et étude de figure d'article",
-         Start='02-04-2021', Finish='03-04-2021', Completion_pct=100, 
-         Category="Prise en main du code initial", 
-         Note="figure 3 de van Haren, H., Laan, M., Buijsman, D. J., Gostiaux<br>"
-              "L., Smit, M. G., & Keijzer, E. (2009). NIOZ3: Independent<br>"         
-              "temperature sensors sampling yearlong data at a rate of 1 Hz.<br>"
-              "IEEE Journal of Oceanic Engineering, 34(3), 315-322."),
-    
-    dict(Task="<b>1.4</b> Recherche d'une nouvelle interface de code", 
-         Start='06-04-2021', Finish='07-04-2021', Completion_pct=75, 
-         Category="Prise en main du code initial", 
-         Note="Essaie de Visual Studio Code avant de retourner à Pyzo."),
-         
-    dict(Task="<b>1.4</b> Recherche d'une nouvelle interface de code", 
-         Start='14-04-2021', Finish='15-04-2021', Completion_pct=50, 
-         Category="Prise en main du code initial", 
-         Note="Nouvel essaie de configuration de Visual Studio Code avant de<br>"
-              "retourner à Pyzo."),
-         
-    dict(Task="<b>1.5</b> Configuration du VPN et de l'accès au calculateur de l'ECL", 
-         Start='02-04-2021', Finish='10-04-2021', Completion_pct=100, 
-         Category="Utilisation des outils de réseau", 
-         Note="Problème de configuration du VPN sur KDE donc aide avec le<br>"
-              "responsable informatique du calculateur et formation de groupe<br>"
-              "à l'accès au calculateur."),
-         
-         
-        dict(Task="<b>2. Développement de l'espace de travail</b>",
-             Start='01-04-2021', Finish='01-04-2021', Completion_pct=0,                 
-             Category="Titre", 
-             Note=''),
-             
-    dict(Task="<b>2.1</b> Création du schéma d'arboressence de stockage des résultats", 
-         Start='06-04-2021', Finish='10-04-2021', Completion_pct=100, 
-         Category="Développement du traitement de données", 
-         Note="Les informations de calibraions sont stockées dans le noms de fichier<br>"
-              "et les noms de dossiers."),
-              
-    dict(Task="<b>2.2</b> Développement du système de processing", 
-         Start='06-04-2021', Finish='14-04-2021', Completion_pct=100, 
-         Category="Développement du traitement de données", 
-         Note="Définiton d'une plage de temps prenant en compte l'ensemble des<br>"
-              "données disponibles et test des diverses fonctions d'autoscale."),
-              
-    dict(Task="<b>2.3</b> Développement du système de plotting", 
-         Start='06-04-2021', Finish='12-04-2021', Completion_pct=100, 
-         Category="Développement d'outil de visualisation", 
-         Note="Mise en forme des profils de température, du profil du gradient<br>"
-              "vertical et horizontal de température et des profils intermédiaires<br>"
-              "entre deux autoscaling adjacents."),
-    
-    dict(Task="<b>2.4</b> Matrice de diagnostique de l'efficacité de la correction", 
-         Start='12-04-2021', Finish='14-04-2021', Completion_pct=75, 
-         Category="Développement d'outil de visualisation", 
-         Note="Diagnostique de vérification de l'effet de l'autoscaling sur la<br>"
-              "moyenne et l'écart-type d'un ensemble de température."),
-              
-    dict(Task="<b>2.5</b> Mise au propre général de l'ensemble du code produit", 
-         Start='13-04-2021', Finish='17-04-2021', Completion_pct=100, 
-         Category="Développement du traitement de données", 
-         Note="Louis Gostiaux m'a aidé à remettre en forme l'ensemble du code<br>"
-              "pour le rentre d'avantage polyvalent, robuste à l'utilisation en<br>"
-              "terminal pour le calculateur et diffusable pour un tier."),
-    
-    
-        dict(Task="<b>3. Développement d'un nouveau moyen d'autoscalling</b>",
-             Start='01-04-2021', Finish='01-04-2021', Completion_pct=0,                 
-             Category="Titre", 
-             Note=''),
-             
-    dict(Task="<b>3.1</b> Autoscalling à variation de température discrete", 
-         Start='19-04-2021', Finish='21-04-2021', Completion_pct=100, 
-         Category="Développement du traitement de données", 
-         Note="En utilisant \Delta T = T_{n} - (T_{n+1} + T_{n-1})/2 sur la<br>"
-              "moyenne temporelle des températures de chaque capteur, il est<br>"
-              "possible de compenser à l'ordre 0 les décalges d'un capteur<br>"
-              "relativement au autres. Ce même calcul peut être effectué sur<br>"
-              "les T à tout temps permettant alors de compenser la déviation<br>"
-              "à l'ordre 1 d'un capteur en effectuant une régression linéaire<br>"
-              "du nuage de point issu de \Delta T = f(T)."),
-              
-    dict(Task="<b>3.2</b> Autoscalling avec utilisation de splines", 
-         Start='21-04-2021', Finish='27-04-2021', Completion_pct=100, 
-         Category="Développement du traitement de données", 
-         Note="La correction de la déviation à l'ordre 0 est réalisée en <br>"
-              "utilisant un spline sur l'ensemle des moyennes temporelles des<br>"
-              "capteurs. La correction à l'ordre 1 est réalisée en utilisant un<br>"
-              "spline par morceaux afin d'estimer à un temps donnés l'écart de<br>"
-              "température entre le spline et les data."),
-              
-    dict(Task="<b>3.3</b> Implémentation de la nouvelle méthode dans le code initial", 
-         Start='28-04-2021', Finish='30-04-2021', Completion_pct=100, 
-         Category="Développement du traitement de données", 
-         Note="Implémentation du code développé dans la librairie initiale<br>"
-              "et mise au propre."),
-             
-             
-        dict(Task="<b>4. Mise en forme des résultats pour la diffusion</b>",
-             Start='01-04-2021', Finish='01-04-2021', Completion_pct=0,                 
-             Category="Titre", 
-             Note=''),
-             
-    dict(Task="<b>4.1</b> Exportation des données en hdf5", 
-         Start='27-04-2021', Finish='30-04-2021', Completion_pct=100, 
-         Category="Développement du traitement de données", 
-         Note="Mise en forme des données en une unique matrice en concatenant<br>"
-              "l'ensemble des différentes calibrations réalisées à chaque temps"
-              "et système de vérification de la bonne sauvegarde."),
-              
-    dict(Task="<b>4.1</b> Exportation des données en hdf5", 
-         Start='06-05-2021', Finish='01-06-2021', Completion_pct=100, 
-         Category="Développement du traitement de données", 
-         Note="Remise en forme du système de concatenation pour optimiser le<br>"
-              "temps de calcul et la mise en mémoire dans le cas de gros fichier<br>"
-              "de données."),
-              
-    dict(Task="<b>4.2</b> Coopération avec un autre stagiaire pour la visualisation", 
-         Start='17-05-2021', Finish='16-07-2021', Completion_pct=90, 
-         Category="Développement d'outil de visualisation", 
-         Note="Un autre stagiaire de l'IRIS est chargé de la représentation<br>"
-              "des données calibrées sur mur d'écran. Diverse directive lui ont<br>"
-              "été données, des réunions on été réalisés."),
-              
-    dict(Task="<b>4.3</b> Remise en forme de l'arborescence du code", 
-         Start='25-06-2021', Finish='27-06-2021', Completion_pct=100, 
-         Category="Développement du traitement de données", 
-         Note="L'ensemble de l'arborescence du code est revu afin de simplifier<br>"
-              "l'interaction avec lui et l'implémentation de nouveaux mouillages."),
-              
-    dict(Task="<b>4.4</b> Mise au propre du code", 
-         Start='26-06-2021', Finish='16-07-2021', Completion_pct=75, 
-         Category="Développement du traitement de données", 
-         Note="Le code est mis au propre, les documentations de fonctions sont<br>"
-              "revues et des commentaires sont ajoutés. Enfin, des sorties<br>"
-              "visuelles de contrôle en ascii art sont aussi développées afin<br>"
-              "de pouvoir suivre l'avancé du code et aussi l'état des mouillages."),
-              
-    
-        dict(Task="<b>5. Amélioration de la qualité des résultats de calibration</b>",
-             Start='01-04-2021', Finish='01-04-2021', Completion_pct=0,                 
-             Category="Titre", 
-             Note=''),
-    
-    dict(Task="<b>5.1</b> Mise en forme de résultats de calibration optimaux", 
-         Start='29-04-2021', Finish='15-06-2021', Completion_pct=100, 
-         Category="Développement du traitement de données", 
-         Note="Utilisation du calculateur en faisant varier les différents<br>"
-              "paramètres. Les seuils de calibrations sont modifiés, des capteurs<br>"
-              "à isoler sont mis en évidence, l'interpolation des données manquantes<br>"
-              "est réalisée et diverse remise en forme du code sont réalisés."),
-              
-    dict(Task="<b>5.2</b> Interpolation des calibrations entre chaque plage de temps", 
-         Start='20-05-2021', Finish='08-06-2021', Completion_pct=100, 
-         Category="Développement du traitement de données", 
-         Note="Mise en place d'un système d'interpolation des valeurs de calibration<br>"
-              "pour un ensemble de plage de temps défini automatiquement afin de<br>"
-              "réduire les problèmes de chevauchements entre calibrations et de<br>"
-              "créer des fichiers de calibrations unique pour l'ensemble de la plage<br>"
-              "de temps."),
-    
-    dict(Task="<b>5.3</b> Parallélisation avancée du code sur calculateur", 
-         Start='26-05-2021', Finish='29-05-2021', Completion_pct=95, 
-         Category="Développement du traitement de données", 
-         Note="Le nouveau code développé à nécessité une méthode de parallélisation<br>"
-              "plus poussée en faisant communiquer les coeurs de calcul entre eux."),
-              
-    dict(Task="<b>5.4</b> Développement d'un nouveau système de visualisation", 
-         Start='27-05-2021', Finish='12-06-2021', Completion_pct=100, 
-         Category="Développement d'outil de visualisation", 
-         Note="Mise en forme d'une visualisation des futurs fichiers de<br>"
-              "calibration unique avec une grande superposition entre chaque panel<br>"
-              "et ce automatiquement pour différentes plage de temps."),       
-    
-    dict(Task="<b>5.5</b> Mise en place d'un système de réduction des artefacts de calibration", 
-         Start='01-06-2021', Finish='11-06-2021', Completion_pct=75, 
-         Category="Développement du traitement de données", 
-         Note="Le sytème de calibration actuel engendre des oscillations de<br>"
-              "température entre les capteurs autour de la valeur à priori idéal.<br>"
-              "Pondérer la température de référence de la calibration ne résoud<br>"
-              "pas ce problème. Cela vient de la correction à l'ordre 0 initiale."),
-              
-    dict(Task="<b>5.6</b> Système de visualisation des données de calibration et loi de calibration", 
-         Start='31-05-2021', Finish='18-06-2021', Completion_pct=100, 
-         Category="Développement d'outil de visualisation", 
-         Note="L'ensemble de données de calibration calculées sont représentées<br>"
-              "graphiquement en fonction du temps pour tous les capteurs d'une<br>"
-              "plage de temps donnée. Les données binaires de tempérautre sont tracées<br>"
-              "en fonction des données calibrées. La différence entre les données<br>"
-              "ayant subi un autoscale ou non est étudiée en fonction des données<br>"      
-              "binaires."), 
-              
-    dict(Task="<b>5.7</b> Développement d'une sur couche de traitement", 
-         Start='15-06-2021', Finish='21-06-2021', Completion_pct=100, 
-         Category="Développement du traitement de données", 
-         Note="Afin d'afiner d'avantage la calibration, une sur correction à<br>"
-              "l'ordre 0 est mise en place sur des plages de temps plus courtes.<br>"
-              "L'architecture du code est revue pour plus de modularité."),
-              
-    dict(Task="<b>5.8</b> Système de d'estimation visuelle d'incertitudes", 
-         Start='11-06-2021', Finish='28-06-2021', Completion_pct=60, 
-         Category="Développement d'outil de visualisation", 
-         Note="La même plage de temps calibrée est représentée avec une échelle<br>"
-              "de couleur dont la quantification varie selon plusieurs plannels.<br>"
-              "Cela permet de mettre en avant la limite à partir de laquelle la<br>"
-              "précision des données peut être remise en cause.<br>"), 
-              
-    
-        dict(Task="<b>6. Mise en place d'un Gantt</b>",
-             Start='01-04-2021', Finish='01-04-2021', Completion_pct=0,                 
-             Category="Titre", 
-             Note=''),
-         
-    dict(Task="<b>6.1</b> Élaboration d'un Gantt à l'aide de Plotly", 
-         Start='18-05-2021', Finish='24-05-2021', Completion_pct=90, 
-         Category="Développement d'outil de visualisation", 
-         Note="L'ensemble de ce Gantt a été codé."),
-    
-    dict(Task="<b>6.2</b> Remplissage du Gantt avec l'état actuel du stage", 
-         Start='20-05-2021', Finish='21-05-2021', Completion_pct=100, 
-         Category="Développement d'outil de visualisation", 
-         Note="Reprise de l'ensemble des notes initalement réalisées sur un fichier<br>"
-              "txt et estimation du travail à venir."),        
-             
-    
-        dict(Task="<b>7. Réanalyse d'autres jeux de données</b>",
-             Start='01-04-2021', Finish='01-04-2021', Completion_pct=0,                 
-             Category="Titre", 
-             Note=''),
-             
-    dict(Task="<b>7.1</b> Réanalyse des données d'un mouillage de la Fosse Romanche", 
-         Start='21-06-2021', Finish='08-07-2021', Completion_pct=80, 
-         Category="Développement du traitement de données", 
-         Note="Application du système actuel de calibration à un nouveau jeu de<br>"
-              "données."),
-              
-    dict(Task="<b>7.2</b> Réanalyse des données d'un mouillage en mer Méditerranée", 
-         Start='08-07-2021', Finish='16-07-2021', Completion_pct=0, 
-         Category="Développement du traitement de données", 
-         Note="Application du système actuel de calibration à un nouveau jeu de<br>"
-              "données plus sensible."),
-        
-        
-        dict(Task="<b>8. Rédaction du rapport de stage</b>",
-             Start='01-04-2021', Finish='01-04-2021', Completion_pct=0,                 
-             Category="Titre", 
-             Note=''),
-    
-    dict(Task="<b>8.1</b> Recherche bibliographique", 
-         Start='01-04-2021', Finish='21-07-2021', Completion_pct=30, 
-         Category="Rédaction de contenu scientifique", 
-         Note="Lecture des papiers initiaux de l'offre de stage et ouverture."),
-         
-    dict(Task="<b>8.2</b> Rédaction du rapport de stage à proprement dit", 
-         Start='24-05-2021', Finish='01-08-2021', Completion_pct=20, 
-         Category="Rédaction de contenu scientifique", 
-         Note="Rédaction du maximum de contenu pour le rapport de stage."),
-        
-    dict(Task="<b>8.3</b> Prise de contact avec les différents chercheurs mis en jeu", 
-         Start='21-06-2021', Finish='21-07-2021', Completion_pct=60, 
-         Category="Rédaction de contenu scientifique", 
-         Note="Il serait intéressant de rencontrer Hans van Haren ou encore <br>"
-              "Raffaele Marino afin de discuter des possibles retomber de ce <br>"
-              "jeux de données."),
-         
+    dict(Task="<b>1.2</b> Subsection 2", 
+         Start='08-07-2021', Finish='20-07-2021', Completion_pct=60, 
+         Category="Category 2", 
+         Note="foo<br>"
+              "foobar<br>"
+              "foooobar<br>"),
+    # ...
 ])
 
 
@@ -467,5 +204,5 @@ fig.update_layout(
     width=1300)
 
 # plotting
-fig.write_html("gantt.html")
+fig.write_html("pygantt.html")
 fig.show()
