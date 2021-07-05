@@ -42,6 +42,7 @@ Ccolor = {"Développement d'outil de visualisation":['LightGreen', 'MediumSeaGre
           "Titre":['black', 'black']
           }
 
+
 ###  3. CONTENT
 odf = pd.DataFrame([
         # section

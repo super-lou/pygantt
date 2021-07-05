@@ -42,6 +42,7 @@ Ccolor = {"Category 1":['LightGreen', 'MediumSeaGreen'],
           "Title":['black', 'black']
           }
 
+
 ###  3. CONTENT
 odf = pd.DataFrame([
         # section
