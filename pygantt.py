@@ -16,9 +16,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Pygantt.  If not, see <https://www.gnu.org/licenses/>.
 
- /\ /\
-= 0 0 =
- """""
+  /\ /\
+ = 0 0 =
+"""""""""
 
 ###  1. LIBRARY
 import plotly.graph_objects as go

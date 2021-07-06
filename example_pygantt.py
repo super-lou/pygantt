@@ -16,15 +16,16 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Pygantt.  If not, see <https://www.gnu.org/licenses/>.
 
- /\ /\
-= 0 0 =
- """""
+  /\ /\
+ = 0 0 =
+"""""""""
 
 ###  1. LIBRARY
 import plotly.graph_objects as go
 import pandas as pd
 import datetime
 import numpy as np
+import os
 
 
 ###  2. GENERAL INFORMATIONS
@@ -469,4 +470,7 @@ fig.update_layout(
 
 # plotting
 fig.write_html("example_pygantt.html")
+if not os.path.exists("figures"):
+    os.mkdir("figures")
+fig.write_image("figures/example_pygantt_1.png", scale=2)
 fig.show()
