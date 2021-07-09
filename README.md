@@ -6,7 +6,7 @@ And what Plotly currently offer : https://plotly.com/python/gantt/
 
 To start a new Gantt use the pygantt.py file. Otherwise an example python file is present to generate the example html output.
 Here is a general preview of the example_pygantt.html file :</br>
-<img src="https://raw.githubusercontent.com/super-lou/pygantt/main/figures/example_pygantt_1.png" width="600"></br>
+[<img src="https://raw.githubusercontent.com/super-lou/pygantt/main/figures/example_pygantt_1.png" width="600">](https://htmlpreview.github.io/?https://github.com/super-lou/pygantt/blob/4a746c2b89f29a4d3c593605042179e9319f9e5e/example_pygantt.html)</br> 
 
 And a zoom view of the hover info possible :</br>
 <img src="https://raw.githubusercontent.com/super-lou/pygantt/main/figures/example_pygantt_2.png" width="600"></br>
